@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--
+객체의 생성과 조립(주입) 
+
+java : 
+	>>생성자를 통해서 주입
+	MessageBeanImpl messagebean = new MessageBeanImpl("hong");
+	
+	>>setter를 통해서 주입
+	messagebean.setGreeting("hello");
+	
+	DI문법
+	<bean id="식별자(한개의 이름)" name="여러개의 이름을 사용할 수 있다, 단 조건이 있음
+	구분자를 써줘야함 (,(콤마) ,공백, ;(세미콜론))
+	 class="DI_04_Spring.MessageBeanImpl">
+
+-->
+<bean id="messagebean" name="m1,m2 m3;m4" class="DI_04_Spring.MessageBeanImpl">
+	<!-- <constructor-arg>생성자임
+		<value>hong</value>
+	</constructor-arg>
+	
+	<property name="greeting">
+	<value>hello</value>
+	</property>
+	property는 setter함수를 의미하는데 setter함수를 구현하고 있는 멤버필드명을 적는거야 setter함수를 적는게 아니야 -->
+	
+	<!-- 다른방법 -->
+	<constructor-arg value="hong"/>
+	<property name="greeting" value="hello"/>
+</bean>
+</beans>
